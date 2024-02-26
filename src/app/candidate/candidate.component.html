@@ -1,0 +1,27 @@
+     <div><table>
+          <thead>
+            <tr>
+              <th>Rec Id</th>
+              <th>Candidate Number</th>
+              <th>Candidate Name</th>
+              <th>Score</th>
+              <th>Rank</th>
+              <th>Update Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let candidate of candidates">
+              <td style="padding-left: 30px;">{{ candidate.recId }}</td>
+              <td>{{ candidate.candidateNo }}</td>
+              <td>{{ candidate.candidateName }}</td>
+              <td>{{ candidate.score }}</td>
+              <td>{{ candidate.rank }}</td>
+              <td>{{ candidate.updateDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    <button (click)="exportToExcel()"style="border-radius: 10px;border-color: none;margin-left: 550px;
+    margin-top: 400px;width: 150px;height: 50px;">Export to Excel</button>
+

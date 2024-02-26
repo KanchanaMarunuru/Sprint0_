@@ -1,0 +1,91 @@
+ <!-- <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"/>
+
+<div class="abc" style="padding-top: 120px;">
+    <div class="login-container">
+  <h2 style="padding-left: 120px;">Login</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" novalidate>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" formControlName="username"
+    placeholder="Enter your name here"
+    [(ngModel)]= "user.username">
+    <div *ngIf="loginForm.controls['username'].
+    invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+      <div *ngIf="loginForm.controls['username'].errors?. ['required']"
+      style="color: red; font-size:small;padding-left: 15vh ;">Username is required.</div>
+    </div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" formControlName="password"
+    placeholder="Enter your password here"
+    [(ngModel)]= "user.password">
+    <div *ngIf="loginForm.controls['password'].
+    invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+      <div *ngIf="loginForm.controls['password'].errors?. ['required']"
+      style="color: red;font-size: small;padding-left: 16vh;">Password is required.</div>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
+</div> -->
+<!---------------------------------------------------------------------------------------------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="container">
+
+
+    <div class="card" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    background-color: white; border-color: none;">
+      <h5 class="card-header" style="padding-left: 300px;">Login Form</h5>
+      <div class="card-body">
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+
+              </div>
+              <div class="form-group">
+                  <!-- <label style="font-weight:normal;">UserName</label> -->
+
+                  <input type="text" formControlName="email" placeholder="Enter your e-mail address"
+                  class="form-control" [(ngModel)]="user.username"
+
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                  <!-- <div class="icon"><i class="fa-solid fa-envelope"></i></div> -->
+
+
+                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                      <div *ngIf="f['email'].errors['required']"style="padding-left: 280px;">User Name is required</div>
+                      <div *ngIf="f['email'].errors['email']"style="padding-left: 250px;">UserName must be a valid email address</div>
+                  </div>
+              </div>
+              <br>
+              <div class="form-row">
+                  <div class="form-group col">
+                      <!-- <label style="font-weight: normal;">Password</label> -->
+                      <input type="password" formControlName="password" placeholder="Enter a valid password" class="form-control" [(ngModel)]="user.password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                          <div *ngIf="f['password'].errors['required']" style="padding-left: 280px;">Password is required</div>
+                          <div *ngIf="f['password'].errors['pattern']"style="padding-left: 60px;">Password must be at least 8 characters with one uppercase, lowercase, number, special character</div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="text-center">
+                  <button class="btn btn-primary mr-1" type="submit" style="margin-right: 10px;">Login</button>
+
+                  <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button><br>
+              </div>
+          </form>
+      </div>
+    </div>
+    </div>
+
+
+    <!------------------------------------------------------------------------------>
